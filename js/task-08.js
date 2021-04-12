@@ -11,16 +11,8 @@
 
 
 const inputEl = document.querySelector('input');
-const btnRender.addEventListener('click', onCreatingDiv) = document.querySelector('#controls button[data-action="render"]');
-const btnDestroy.addEventListener('click', onDeletingDiv) = document.querySelector('#controls button[data-action="destroy"]');
-
-function onCreatingDiv() {
-  createBoxes(inputEl.value);
-  console.log(`Создадим ${inputEl.value} div`);
-};
-function onDeletingDiv() {
-  boxesContainer.innerHTML = '';
-}
+const btnRender = document.querySelector('#controls button[data-action="render"]');
+const btnDestroy = document.querySelector('#controls button[data-action="destroy"]');
 const boxesContainer = document.querySelector('#boxes');
 function createBoxes(amount) {
   boxesContainer.innerHTML = '';
@@ -32,10 +24,9 @@ function createBoxes(amount) {
     divEl.style.height = i * 10 + 20 + 'px';;
     divEl.style.margin = '3px';
     divArr.push(divEl);
+  }
+  return boxesContainer.append(...divArr);
 }
-btn.addEventListener("click", handleNavClick);
-const btnRender = document.querySelector('#controls button[data-action="render"]');
-const btnDestroy = document.querySelector('#controls button[data-action="destroy"]');
 const randomRgb = () => {
   const rgbNum = () => Math.floor(Math.random() * 256);
   const r = rgbNum();
@@ -43,4 +34,12 @@ const randomRgb = () => {
   const b = rgbNum();
   return `rgb(${r},${g},${b})`;
 };
-divEl.style.backgroundColor = randomRgb();
+btnRender.addEventListener('click', onCreatingDiv);
+btnDestroy.addEventListener('click', onDeletingDiv);
+function onCreatingDiv() {
+  createBoxes(inputEl.value);
+  console.log(`Создадим ${inputEl.value} div`);
+};
+function onDeletingDiv() {
+  boxesContainer.innerHTML = '';
+}
