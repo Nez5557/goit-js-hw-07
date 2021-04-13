@@ -2,7 +2,7 @@
 
 // В HTML есть список ul#gallery.
 
-// <ul id="gallery"></ul>
+//   <ul id="gallery"></ul>
 //   Используй массив объектов images для создания тегов img вложенных в li.
 //   Для создания разметки используй шаблонные строки и insertAdjacentHTML().
 
